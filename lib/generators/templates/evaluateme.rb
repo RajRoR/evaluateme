@@ -7,5 +7,5 @@ Evaluateme.setup do |config|
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Evaluateme::Mailer,
-  config.mailer_sender = 'admin@evaluateme.com'
+  config.mailer_sender = 'admin@example.com'
 end

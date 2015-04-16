@@ -1,6 +1,6 @@
 # Rake tasks to set the routes, assets, install migrations and create initializer file.
 
-desc "Setting all the required configuration for the plugin in the application"
+desc "Setting all the required configuration for the 'Evaluateme' in the application"
 
 namespace :evaluateme do
 
@@ -11,31 +11,31 @@ namespace :evaluateme do
     Rake::Task["evaluateme:initializer_file"].invoke
   end
 
-  # Set routes path for the plugin
+  # Set routes path for the 'Evaluateme'
   task :set_routes do
     target  = "config/routes.rb"
     set_routes_plugin = "mount Evaluateme::Engine => '/evaluateme'"
     routes_defined = false
   
-    # Check the routes line of plugin already exists?
+  # Check the routes line of 'evaluateme' already exists?
     File.open(target, 'r+') do |f|
       f.each do |line|
         routes_defined = true if line.include? set_routes_plugin
       end
 
-      # Write the routes path if not already set.
+  # Write the routes path if not already set.
       unless routes_defined
         f.rewind
         f.each do |line|
           break  if line.include? "Rails.application.routes.draw do"
         end
-        pos = f.pos                     # save your position in the file
-        rest_data = f.read                   # save the rest of the file
-        f.seek pos                      # go back to the old position
+        pos = f.pos                                 # save your position in the file
+        rest_data = f.read                          # save the rest of the file
+        f.seek pos                                  # go back to the old position
         f.write set_routes_plugin + "\n"
-        f.write rest_data            # write new data & rest of file
+        f.write rest_data                           # write new data & rest of file
       end
-      puts "Routes are defined for the plugin "
+      puts "Routes are defined for the 'Evaluateme'"
     end
   end
 
@@ -46,23 +46,23 @@ namespace :evaluateme do
     js_data = "Rails.application.config.assets.precompile += %w( amelia.js )" 
     set_css_path = set_js_path = false
   
-    # Check the path if already exists?
+  # Check the path if already exists?
     File.open(target, 'r+') do |f|
       f.each do |line|
         set_css_path = true if line.include? css_data
         set_js_path = true if line.include? js_data
       end
 
-      # Write into assets.rb
+  # Write into assets.rb
       f.write css_data + "\n" unless set_css_path
       f.write js_data + "\n" unless set_js_path
     end
-    puts "Assets are defined for the plugin theme"
+    puts "Assets are defined for the Evaluateme theme"
   end
 
   task :install_migrations do
     Rake::Task["evaluateme:install:migrations"].invoke
-    puts "Plugin migrations are installed"
+    puts "Evaluateme migrations are installed"
   end
 
   # Checks that the directory you've passed in exists (pulling the directory from the path using File.dirname),
@@ -74,7 +74,7 @@ namespace :evaluateme do
 
     File.open(path + filename, "w+") do |f|
       src = File.expand_path("../../generators/templates/evaluateme.rb", __FILE__)
-      dst = path + "plugin.rb"
+      dst = path + "evaluateme.rb"
       src = File.open(src)
       dest = File.open(dst, "w")
       IO.copy_stream(src, dest)
