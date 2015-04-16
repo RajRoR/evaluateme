@@ -14,7 +14,7 @@ namespace :evaluateme do
   # Set routes path for the plugin
   task :set_routes do
     target  = "config/routes.rb"
-    set_routes_plugin = "  mount Evaluateme::Engine => '/evaluateme'"
+    set_routes_plugin = "mount Evaluateme::Engine => '/evaluateme'"
     routes_defined = false
   
     # Check the routes line of plugin already exists?

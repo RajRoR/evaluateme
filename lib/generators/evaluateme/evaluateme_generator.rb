@@ -11,7 +11,7 @@ class EvaluatemeGenerator < Rails::Generators::NamedBase
 
 module EvaluatemeHelper
 
-  def #{plural_name.singularize}_signed_in?
+  def #{plural_name.singularize}_plugin_helper?
     puts "Evaluateme plugin."
   end
 

@@ -1,4 +1,4 @@
 module Evaluateme
-  class ApplicationController < ActionController::Base
+  class ApplicationController <  Evaluateme.parent_controller.constantize
   end
 end
