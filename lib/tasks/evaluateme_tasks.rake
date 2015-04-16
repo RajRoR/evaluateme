@@ -73,7 +73,7 @@ namespace :evaluateme do
     filename = "evaluateme.rb"
 
     File.open(path + filename, "w+") do |f|
-      src = File.expand_path("../../evaluateme.rb", __FILE__)
+      src = File.expand_path("../../generators/templates/evaluateme.rb", __FILE__)
       dst = path + "plugin.rb"
       src = File.open(src)
       dest = File.open(dst, "w")
