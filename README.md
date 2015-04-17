@@ -1,3 +1,8 @@
+# Links fo database structure and SRS document.
+
+https://docs.google.com/document/d/1R6hnnfRAEgvIXt89PJ46HpQCzOytXF_dzCDGGceJqU0/edit
+https://docs.google.com/document/d/1Hzy1Vq2CrGGrQu3GXbHV5fLY5XcT0zqFm3RHbQqJ9HA/edit
+
 ###### In brief Steps to create the plugin.
 
 1. rails plugin new evalauteme --mountable 
