@@ -19,24 +19,20 @@ FILE
     puts "Helper file has created"
   end
 
+# Create the migration for adding new field to the passed parameter of model name
+# of the hooked application. 
 
-# Create the migrations
   def create_user_migration
-    plural_name = 'user' if plural_name.blank? 
-
     create_file "db/migrate/add_evaluateme_fields_to_#{plural_name}",
-
 <<-MIGRATION
+
 class AddEvaluatemeTo#{plural_name.capitalize} < ActiveRecord::Migration
   def change
-    
     add_column :#{plural_name}, :kra_locked, :boolean, :default => false
-    add_column :#{plural_name}, :kra, :boolean, :default => false
   end
 end
 
 MIGRATION
-  puts "Migration has created"
-end
+  end
 
 end
